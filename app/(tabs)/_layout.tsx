@@ -1,40 +1,35 @@
-
-import "@/global.css";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from "expo-router";
-import React from "react";
-import { Platform } from "react-native";
-
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { Tabs } from 'expo-router';
 export default function TabLayout() {
   return (
-  <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: "#000", // Active tab color
-        headerShown: false,
-        tabBarStyle: Platform.select({
-          ios: {
-            position: "absolute",
-          },
-          default: {},
-        }),
-      }}
-    >
+    <Tabs screenOptions={{ tabBarActiveTintColor: 'black',tabBarShowLabel: false,headerShown:false }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" size={24} color={color} />
-          ),
+          title: 'Home',
+          tabBarIcon: ({ color }) => <FontAwesome6 name="house" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="search"
         options={{
-          title: "Explore",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="search" size={24} color={color} />
-          ),
+          title: 'Search',
+          tabBarIcon: ({ color }) => <FontAwesome5 size={22} name="search" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="activity"
+        options={{
+          title: 'activity"',
+          tabBarIcon: ({ color }) => <FontAwesome6 size={22} name="heart" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'profile',
+          tabBarIcon: ({ color }) => <FontAwesome5 size={22} name="user" color={color} />,
         }}
       />
     </Tabs>
